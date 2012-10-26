@@ -1,8 +1,8 @@
-SpringÕûºÏMyBatis
+Springæ•´åˆMyBatis
 
-1¡¢ÔÚ¿ØÖÆÌ¨¼ÇÂ¼ÕæÊµµÄsqlÓï¾ä
-1.1¡¢Ê¹ÓÃlog4jdbcµÄÅäÖÃ
-	1.1.1¡¢Ìí¼Ólog4jdbcµÄjar
+1ã€åœ¨æ§åˆ¶å°è®°å½•çœŸå®çš„sqlè¯­å¥
+1.1ã€ä½¿ç”¨log4jdbcçš„é…ç½®
+	1.1.1ã€æ·»åŠ log4jdbcçš„jar
 	<dependency>
 			<groupId>log4jdbc</groupId>
 			<artifactId>log4jdbc4</artifactId>
@@ -28,18 +28,18 @@ SpringÕûºÏMyBatis
 			<artifactId>slf4j-jdk14</artifactId>
 			<version>1.5.8</version>
 	</dependency>
-	1.1.2¡¢²Î¿¼src/main/resources/log4j.propertiesÅäÖÃÎÄ¼ş
-	1.1.3¡¢ĞŞ¸ÄjdbcµÄdriverºÍjdbc url£¨²Î¿¼src/main/resources/applicationContext.xml£©
+	1.1.2ã€å‚è€ƒsrc/main/resources/log4j.propertiesé…ç½®æ–‡ä»¶
+	1.1.3ã€ä¿®æ”¹jdbcçš„driverå’Œjdbc urlï¼ˆå‚è€ƒsrc/main/resources/applicationContext.xmlï¼‰
 		<property name="driverClassName" value="net.sf.log4jdbc.DriverSpy"></property>
 		<property name="url" value="jdbc:log4jdbc:mysql://localhost:3306/mybatis"></property>
-1.2¡¢Ê¹ÓÃp6spyµÄÅäÖÃ		
-	1.2.1¡¢Ìí¼Óp6spyµÄjar
+1.2ã€ä½¿ç”¨p6spyçš„é…ç½®		
+	1.2.1ã€æ·»åŠ p6spyçš„jar
 		<dependency>
 			<groupId>p6spy</groupId>
 			<artifactId>p6spy</artifactId>
 			<version>1.3</version>
 		</dependency>
-	1.2.2¡¢²Î¿¼src/main/resources/spy.properties
-	1.2.3¡¢Ìí¼ÓÅäÖÃÎÄ¼şĞÅÏ¢
+	1.2.2ã€å‚è€ƒsrc/main/resources/spy.properties
+	1.2.3ã€æ·»åŠ é…ç½®æ–‡ä»¶ä¿¡æ¯
 		<property name="driverClassName" value="com.p6spy.engine.spy.P6SpyDriver"></property>
 		<property name="url" value="jdbc:mysql://localhost:3306/mybatis"></property>
