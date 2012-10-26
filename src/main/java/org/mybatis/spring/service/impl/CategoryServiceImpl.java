@@ -22,4 +22,8 @@ public class CategoryServiceImpl implements CategoryService {
 		return categoryMapper.listAllCategory();
 	}
 
+	public Category selectCategoryById(int id) {
+		return categoryMapper.selectCategoryById(id);
+	}
+
 }

@@ -4,13 +4,21 @@
 <mapper namespace="org.mybatis.spring.mapper.CategoryMapper">
 	<cache></cache>
 	
-	<select id="selectCategoryById" parameterType="int" resultType="Category">
+	<!-- 定义categoryResultMap -->
+	<resultMap type="Category" id="categoryResultMap">
+		<result column="id" property="id" javaType="int"/>
+		<result column="name" property="name" javaType="string"/>
+		<!-- 关联查询 关联org.mybatis.spring.mapper.ProductMapper.listProductByCategoryid 根据categoryid查询商品 -->
+		<collection property="products" javaType="ArrayList" column="id" select="org.mybatis.spring.mapper.ProductMapper.listProductByCategoryid">
+		</collection>
+	</resultMap>
+	
+	
+	<select id="selectCategoryById" parameterType="int" resultMap="categoryResultMap">
 		<![CDATA[
 			SELECT * FROM category where id = #{id}
 		]]>
 	</select>
-	
-	
 	
 	
 	

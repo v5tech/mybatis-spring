@@ -21,7 +21,6 @@
 		
 	</resultMap>
 	
-	
 	<sql id="selectSQL">
 		<![CDATA[
 			SELECT * FROM product INNER JOIN category ON product.categoryid=category.id
@@ -58,7 +57,9 @@
 		<where>
 		
 			<if test="name!=null">
-				AND product.name like CONCAT(#{name},'%')
+				<![CDATA[
+					AND product.name like CONCAT(#{name},'%')
+				]]>
 			</if>
 			
 			<if test="price!=null">
@@ -82,9 +83,5 @@
 		</where>
 		
 	</select>
-	
-	
-	
-	
 	
 </mapper>

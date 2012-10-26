@@ -10,4 +10,7 @@ public interface CategoryService {
 	List<Category> listAllCategory();
 	
 	
+	Category selectCategoryById(int id);
+	
+	
 }

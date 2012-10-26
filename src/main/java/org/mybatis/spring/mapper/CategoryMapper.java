@@ -2,6 +2,7 @@ package org.mybatis.spring.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 import org.mybatis.spring.model.Category;
 
@@ -12,7 +13,15 @@ public interface CategoryMapper {
 	 * @return
 	 */
 	@Select("select * from category")
+	@ResultMap("categoryResultMap")
 	List<Category> listAllCategory();
+
+	/**
+	 * ¸ù¾Ýid²éÑ¯Category
+	 * @param id
+	 * @return
+	 */
+	Category selectCategoryById(int id);
 	
 	
 }
