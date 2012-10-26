@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.mybatis.spring.mapper.ProductMapper">
+
+	<cache></cache>
+	
+	<resultMap type="Product" id="productResultMap">
+		<result column="id" property="id" javaType="int"/>
+		<result column="name" property="name" javaType="String"/>
+		<result column="price" property="price" javaType="float"/>
+		<result column="description" property="description" javaType="String"/>
+		<result column="categoryid" property="categoryid" javaType="int"/>
+		
+		<association property="category"  column="categoryid" javaType="Category" select="org.mybatis.spring.mapper.CategoryMapper.selectCategoryById">
+			<!-- 
+				<result column="id" property="id" javaType="int"/>
+				<result column="name" property="name" javaType="String"/>
+			-->
+		</association>
+		
+	</resultMap>
+	
+	
+	<sql id="selectSQL">
+		<![CDATA[
+			SELECT * FROM product INNER JOIN category ON product.categoryid=category.id
+		]]>
+	</sql>
+	
+	
+	<select id="listAllProductIncludeCategoryName" resultMap="productResultMap" useCache="true" >
+		<include refid="selectSQL"/>
+	</select>
+	
+	
+	<insert id="insertProduct" keyColumn="id" keyProperty="id" useGeneratedKeys="true" parameterType="Product">
+		<![CDATA[
+			INSERT INTO product (name,price,description,categoryid) values (#{name},#{price},#{description},#{categoryid})
+		]]>
+	</insert>
+	
+	
+	<!--  
+	<update id="updateProduct" parameterType="Product">
+		<![CDATA[
+			UPDATE product SET name=#{name},price=#{price},description=#{description},categoryid=#{categoryid} WHERE id = #{id}
+		]]>
+	</update>
+	-->
+	
+	
+	
+	<select id="dynaQuerySql" resultMap="productResultMap" parameterType="Product">
+		
+		<include refid="selectSQL"/>
+		
+		<where>
+		
+			<if test="name!=null">
+				AND product.name like CONCAT(#{name},'%')
+			</if>
+			
+			<if test="price!=null">
+				<![CDATA[
+					AND price <= #{price}
+				]]>
+			</if>
+			
+			<if test="categoryid!=null">
+				<![CDATA[
+					AND categoryid = #{categoryid}
+				]]>
+			</if>
+			
+			<if test="id!=null">
+				<![CDATA[
+					AND product.id = #{id}
+				]]>
+			</if>
+			
+		</where>
+		
+	</select>
+	
+	
+	
+	
+	
+</mapper>
