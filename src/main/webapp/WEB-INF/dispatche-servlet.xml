@@ -13,14 +13,15 @@
 	http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 	
 	<mvc:annotation-driven>
-		<!-- 处理返回json或xml时的中文乱码 -->
-		<!-- 
-			<mvc:message-converters register-defaults="true">
-				<bean class="org.mybatis.spring.utils.UTF8StringHttpMessageConverter"></bean>
-			</mvc:message-converters>
-		-->
+			<!-- 
+				<mvc:message-converters register-defaults="true">
+					<bean class="org.mybatis.spring.utils.UTF8StringHttpMessageConverter"></bean>
+				</mvc:message-converters>
+			 -->
 	</mvc:annotation-driven>
+	
 	<context:annotation-config/>
+	
 	<context:component-scan base-package="org.mybatis.spring.controller">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>		
@@ -28,6 +29,22 @@
 	<mvc:default-servlet-handler default-servlet-name="dispatcher"/>
 	
 	<mvc:view-controller path="/index.do"/>
+	
+	
+	<!-- 用于将实体转化为xml格式的数据 -->
+	<bean id="xmlViewer" 
+		class="org.springframework.web.servlet.view.xml.MarshallingView">
+		<constructor-arg>
+		  <bean class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+			<property name="classesToBeBound">
+				<list>
+					<value>org.mybatis.spring.model.Product</value>
+				</list>
+			</property>
+		  </bean>
+		</constructor-arg>
+	</bean>
+	
 	
 	
 	
@@ -80,6 +97,22 @@
 		<property name="exposeSpringMacroHelpers" value="true" />
 	</bean>
 	
+	
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<!-- JSON解析对象 -->
+				<bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
+				<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+					<property name="supportedMediaTypes">
+						<list>
+							<value>text/plain;charset=UTF-8</value>
+						</list>
+					</property>
+				</bean>
+			</list>
+		</property>
+	</bean>
 	
 	
 	<!-- 按bean的名字去解析  查看rssViewer视图 -->

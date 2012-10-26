@@ -19,10 +19,17 @@ public class ProductController {
 	private ProductService productService;
 	
 	
-	@RequestMapping(value={"/find2Json/{id}"},produces=MediaType.APPLICATION_JSON_VALUE,method={RequestMethod.GET,RequestMethod.POST})
-	public @ResponseBody Product findProductById(@PathVariable("id")int id){
+	@RequestMapping(value={"/find2json/{id}"},produces=MediaType.APPLICATION_JSON_VALUE,method={RequestMethod.GET,RequestMethod.POST})
+	public @ResponseBody Product findProductByIdToJson(@PathVariable("id")int id){
 		Product product=productService.findProductById(id);
 		return product;
 	}
 	
+	
+	
+	@RequestMapping(value={"/find2xml/{id}"},produces=MediaType.APPLICATION_XML_VALUE,method={RequestMethod.GET,RequestMethod.POST})
+	public @ResponseBody Product findProductByIdToXML(@PathVariable("id")int id){
+		Product product=productService.findProductById(id);
+		return product;
+	}
 }
