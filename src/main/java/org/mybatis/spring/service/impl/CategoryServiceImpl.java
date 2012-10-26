@@ -26,4 +26,16 @@ public class CategoryServiceImpl implements CategoryService {
 		return categoryMapper.selectCategoryById(id);
 	}
 
+	public void saveCategory(Category category) {
+		categoryMapper.saveCategory(category);
+	}
+
+	public void updateCategory(Category category) {
+		categoryMapper.updateCategory(category);
+	}
+
+	public Category findCategoryById(int id) {
+		return categoryMapper.findCategoryById(id);
+	}
+
 }

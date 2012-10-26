@@ -78,7 +78,7 @@ public class ProductServiceImplTest {
 	
 	@Test
 	public void findProductById(){
-		Product product = productService.findProductById(3);
+		Product product = productService.findProductById(1);
 		System.out.println(product);
 	}
 	

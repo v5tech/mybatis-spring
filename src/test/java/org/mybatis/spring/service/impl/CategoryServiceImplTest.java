@@ -27,6 +27,22 @@ public class CategoryServiceImplTest {
 		}
 	}
 	
+	@Test
+	public void saveCategory(){
+		categoryService.saveCategory(new Category("体育"));
+	}
+	
+	@Test
+	public void updateCategory(){
+		Category category = categoryService.findCategoryById(4);
+		category.setName("大家电");
+		categoryService.updateCategory(category);
+		
+		category = categoryService.findCategoryById(5);
+		category.setName("小家电");
+		categoryService.updateCategory(category);
+	}
+	
 	
 	
 	@Test

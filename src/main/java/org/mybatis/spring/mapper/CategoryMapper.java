@@ -2,8 +2,11 @@ package org.mybatis.spring.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.mybatis.spring.model.Category;
 
 public interface CategoryMapper {
@@ -24,4 +27,12 @@ public interface CategoryMapper {
 	Category selectCategoryById(int id);
 	
 	
+	Category findCategoryById(int id);
+	
+	
+	@Insert("insert into category(name) values (#{category.name})")
+	void saveCategory(@Param("category")Category category);
+	
+	@Update("update category set name=#{category.name} where id = #{category.id}")
+	void updateCategory(@Param("category")Category category);
 }

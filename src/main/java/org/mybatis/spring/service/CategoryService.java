@@ -12,5 +12,11 @@ public interface CategoryService {
 	
 	Category selectCategoryById(int id);
 	
+	void saveCategory(Category category);
+	
+	
+	void updateCategory(Category category);
+	
+	Category findCategoryById(int id);
 	
 }
