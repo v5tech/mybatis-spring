@@ -14,6 +14,7 @@
 		
 		<association property="category"  column="categoryid" javaType="Category" select="org.mybatis.spring.mapper.CategoryMapper.selectCategoryById">
 			<!-- 
+				使用此方式时,需要保证关联的表中不能有重复的列 否则数据映射就会有问题
 				<result column="id" property="id" javaType="int"/>
 				<result column="name" property="name" javaType="String"/>
 			-->
