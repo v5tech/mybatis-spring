@@ -9,7 +9,7 @@
 		<result column="id" property="id" javaType="int"/>
 		<result column="name" property="name" javaType="string"/>
 		<!-- 关联查询 关联org.mybatis.spring.mapper.ProductMapper.listProductByCategoryid 根据categoryid查询商品 -->
-		<collection property="products" javaType="ArrayList" column="id" select="org.mybatis.spring.mapper.ProductMapper.listProductByCategoryid">
+		<collection property="products" javaType="ArrayList" ofType="Product" column="id" select="org.mybatis.spring.mapper.ProductMapper.listProductByCategoryid">
 		</collection>
 	</resultMap>
 	
