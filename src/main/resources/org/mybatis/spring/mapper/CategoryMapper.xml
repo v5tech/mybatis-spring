@@ -15,6 +15,14 @@
 	</resultMap>
 	
 	
+	<select id="findCategoryById" parameterType="int" resultType="Category">
+		<![CDATA[
+			SELECT * FROM category where id = #{id}
+		]]>
+	</select>
+	
+	
+	
 	<select id="selectCategoryById" parameterType="int" resultMap="categoryResultMap">
 		<![CDATA[
 			SELECT * FROM category where id = #{id}

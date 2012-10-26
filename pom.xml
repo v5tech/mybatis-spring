@@ -35,13 +35,11 @@
 		</dependency>
 		
 		
-		<!-- 
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-webmvc</artifactId>
-				<version>3.1.1.RELEASE</version>
-			</dependency>
-		-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>3.1.1.RELEASE</version>
+		</dependency>
 		
 		
 		<dependency>
@@ -51,6 +49,12 @@
 		</dependency>
 		
 		
+		<!-- json -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.7.1</version>
+		</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>
@@ -92,9 +96,35 @@
 			<artifactId>slf4j-jdk14</artifactId>
 			<version>1.5.8</version>
 		</dependency>
+		<dependency>
+			<groupId>velocity</groupId>
+			<artifactId>velocity</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>velocity</groupId>
+			<artifactId>velocity-dep</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>2.3.19</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-oxm</artifactId>
+			<version>3.1.1.RELEASE</version>
+		</dependency>
 	</dependencies>
 
 	<build>
+		<finalName>mybatis-spring</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -104,6 +134,33 @@
 					<source>1.5</source>
 					<target>1.5</target>
 				</configuration>
+			</plugin>
+			<!-- 
+				maven tomcat plugin 
+					usage
+				mvn tomcat:run
+			-->
+			<plugin>
+	          <groupId>org.apache.tomcat.maven</groupId>
+	          <artifactId>tomcat6-maven-plugin</artifactId>
+	          <version>2.0</version>
+	        </plugin>
+	        <plugin>
+	          <groupId>org.apache.tomcat.maven</groupId>
+	          <artifactId>tomcat7-maven-plugin</artifactId>
+	          <version>2.0</version>
+	        </plugin>
+			
+			
+			<!-- 
+				maven jetty plugin 
+					usage
+				mvn jetty:run
+			-->
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+                <artifactId>maven-jetty-plugin</artifactId>
+                <version>6.1.14</version>
 			</plugin>
 		</plugins>
 	</build>
