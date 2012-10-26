@@ -57,6 +57,7 @@ public class Product implements Serializable{
 		return category;
 	}
 
+	@XmlElement(name="category")
 	public void setCategory(Category category) {
 		this.category = category;
 	}
@@ -64,7 +65,7 @@ public class Product implements Serializable{
 	public int getCategoryid() {
 		return categoryid;
 	}
-	@XmlElement
+	
 	public void setCategoryid(int categoryid) {
 		this.categoryid = categoryid;
 	}
