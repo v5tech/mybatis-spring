@@ -24,8 +24,8 @@
 		<property name="username" value="${username}"></property>
 		<property name="password" value="${password}"></property>
 		-->
-		<property name="driverClassName" value="net.sf.log4jdbc.DriverSpy"></property>
-		<property name="url" value="jdbc:log4jdbc:mysql://localhost:3306/mybatis"></property>
+		<property name="driverClassName" value="com.p6spy.engine.spy.P6SpyDriver"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/mybatis"></property>
 		<property name="username" value="root"></property>
 		<property name="password" value=""></property>
 	</bean>
