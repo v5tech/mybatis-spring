@@ -2,14 +2,21 @@ package org.mybatis.spring.model;
 
 import java.io.Serializable;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 @SuppressWarnings("serial")
+@XmlRootElement(name="product")
 public class Product implements Serializable{
 
 	private int id;
+	
 	private String name;
+	
 	private float price;
+	
 	private String description;
-
+	
 	private int categoryid;
 	
 	private Category category = new Category();
@@ -17,7 +24,7 @@ public class Product implements Serializable{
 	public int getId() {
 		return id;
 	}
-
+	@XmlElement
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -25,7 +32,7 @@ public class Product implements Serializable{
 	public String getName() {
 		return name;
 	}
-
+	@XmlElement
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -33,7 +40,7 @@ public class Product implements Serializable{
 	public float getPrice() {
 		return price;
 	}
-
+	@XmlElement
 	public void setPrice(float price) {
 		this.price = price;
 	}
@@ -41,7 +48,7 @@ public class Product implements Serializable{
 	public String getDescription() {
 		return description;
 	}
-
+	@XmlElement
 	public void setDescription(String description) {
 		this.description = description;
 	}
@@ -57,7 +64,7 @@ public class Product implements Serializable{
 	public int getCategoryid() {
 		return categoryid;
 	}
-
+	@XmlElement
 	public void setCategoryid(int categoryid) {
 		this.categoryid = categoryid;
 	}
