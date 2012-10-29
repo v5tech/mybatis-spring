@@ -17,7 +17,7 @@ public class Category implements Serializable{
 	public int getId() {
 		return id;
 	}
-	@XmlElement
+	@XmlElement(name="categoryid")
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -25,7 +25,7 @@ public class Category implements Serializable{
 	public String getName() {
 		return name;
 	}
-	@XmlElement
+	@XmlElement(name="categoryname")
 	public void setName(String name) {
 		this.name = name;
 	}
