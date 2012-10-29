@@ -13,11 +13,9 @@
 	http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 	
 	<mvc:annotation-driven>
-			<!-- 
-				<mvc:message-converters register-defaults="true">
-					<bean class="org.mybatis.spring.utils.UTF8StringHttpMessageConverter"></bean>
-				</mvc:message-converters>
-			 -->
+		<mvc:message-converters register-defaults="true">
+			<bean class="org.mybatis.spring.utils.UTF8StringHttpMessageConverter"></bean>
+		</mvc:message-converters>
 	</mvc:annotation-driven>
 	
 	<context:annotation-config/>
@@ -36,6 +34,7 @@
 		<property name="classesToBeBound">
 			<list>
 				<value>org.mybatis.spring.model.Product</value>
+				<value>org.mybatis.spring.model.Products</value>
 			</list>
 		</property>
 	</bean>

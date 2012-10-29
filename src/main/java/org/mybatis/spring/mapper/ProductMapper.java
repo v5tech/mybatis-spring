@@ -15,7 +15,8 @@ public interface ProductMapper {
 	 * 查询所有的商品
 	 * @return
 	 */
-	@Select("select * from product")
+	@Select("SELECT * FROM product INNER JOIN category ON product.categoryid=category.id")
+	@ResultMap("productResultMap")
 	List<Product> listAllProduct();
 	
 	/**
