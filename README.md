@@ -1,10 +1,11 @@
-Spring整合MyBatis
 
-1、在控制台记录真实的sql语句
+#Spring整合MyBatis
 
-1.1、使用log4jdbc的配置
+##在控制台记录真实的sql语句
 
-1.1.1、添加log4jdbc的jar
+####使用log4jdbc的配置
+
+1、添加log4jdbc的jar
 
 	<dependency>
 			<groupId>log4jdbc</groupId>
@@ -32,16 +33,16 @@ Spring整合MyBatis
 			<version>1.5.8</version>
 	</dependency>
 	
-1.1.2、参考src/main/resources/log4j.properties配置文件
+2、参考[src/main/resources/log4j.properties](src/main/resources/log4j.properties)配置文件
 
-1.1.3、修改jdbc的driver和jdbc url（参考src/main/resources/applicationContext.xml）
+3、修改jdbc的driver和jdbc url（参考[src/main/resources/applicationContext.xml](src/main/resources/applicationContext.xml)）
 
 	<property name="driverClassName" value="net.sf.log4jdbc.DriverSpy"></property>
 	<property name="url" value="jdbc:log4jdbc:mysql://localhost:3306/mybatis"></property>
 	
-1.2、使用p6spy的配置	
+####使用p6spy的配置	
 
-1.2.1、添加p6spy的jar
+1、添加p6spy的jar
 
 	<dependency>
 		<groupId>p6spy</groupId>
@@ -49,9 +50,9 @@ Spring整合MyBatis
 		<version>1.3</version>
 	</dependency>
 	
-1.2.2、参考src/main/resources/spy.properties
+2、参考[src/main/resources/spy.properties](src/main/resources/spy.properties)
 
-1.2.3、添加配置文件信息
+3、添加配置文件信息
 
 	<property name="driverClassName" value="com.p6spy.engine.spy.P6SpyDriver"></property>
 	<property name="url" value="jdbc:mysql://localhost:3306/mybatis"></property>
